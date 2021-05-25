@@ -1,0 +1,42 @@
+.u-banner-paper {
+    height: 22rem;
+    padding: 1.6rem;
+    box-sizing: border-box;
+}
+
+.u-waver-header, .u-waver-footer {
+    svg {
+        width: 100%;
+        height: 7vw;
+        position: relative;
+        min-height: 7vw;
+        margin-bottom: -7px
+    }
+    use {
+        animation-delay: -2s;
+        animation: jss32 4s cubic-bezier(0.62, 0.5, 0.38, 0.5) infinite;
+    }
+}
+
+.theme(
+    @theme__c: @theme_main_color;
+    @wave-footer-color: #fff;
+) {
+    .u-waver-header {
+        border: 0;
+        background: @theme__c; 
+    }
+    .u-waver-footer {
+        background: @wave-footer-color;
+    }
+    .u-banner-box {
+        position: relative;
+        padding-top: 6.4rem;
+        height: 35rem;
+        background: @theme__c;
+    }
+}
+
+.theme-default {
+    .theme()
+}

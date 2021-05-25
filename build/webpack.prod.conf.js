@@ -5,9 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const baseWebpackConfig = require('./webpack.base.conf')
-const utils = require('./utils')
+const { assetsPath } = require('./utils')
 const { IsGziped, GzipExtensions } = require('./config')
+const baseWebpackConfig = require('./webpack.base.conf')
 
 const webpackConfig = merge(baseWebpackConfig, {
     mode: 'production',
@@ -41,7 +41,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         new OptimizeCSSPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: utils.assetsPath(`/css/[name].[chunkhash:8].css`)
+            filename: assetsPath(`/css/[name].[chunkhash:8].css`)
         })
     ]
 })

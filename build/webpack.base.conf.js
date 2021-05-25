@@ -1,10 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TsImportPluginFactory = require('ts-import-plugin')
-
+const lessOptions = require('./config/theme')
 const plugins = require('./webpack.plugin.conf')
 const { resolve, assetsPath } = require('./utils')
-const { PublicPath } = require('./config')
-const lessOptions = require('./config/theme')
+const { PublicPath, OutputPath } = require('./config')
 
 const styleLoaders = ['css-loader',
     {
@@ -23,13 +21,16 @@ const styleLoaders = ['css-loader',
     }
 ]
 
-process.env.NODE_ENV === 'production' && styleLoaders.unshift(MiniCssExtractPlugin.loader)
+styleLoaders.unshift(
+    process.env.NODE_ENV === 'production' ?
+    MiniCssExtractPlugin.loader : 'style-loader'
+)
 
 module.exports = {
     entry: resolve('../src/index.tsx'),
     output: {
         publicPath: PublicPath,
-        path: resolve('../dist'),
+        path: OutputPath,
         filename: assetsPath(`/js/[name].[chunkhash:8].js`),
         chunkFilename: assetsPath(`/js/[id].[chunkhash:8].js`)
     },
@@ -48,13 +49,6 @@ module.exports = {
                 loader: 'ts-loader',
                 options: {
                     transpileOnly: true,
-                    getCustomTransformers: () => ({
-                        before: [TsImportPluginFactory({
-                            libraryName: 'antd',
-                            libraryDirectory: 'es',
-                            style: true
-                        })]
-                    }),
                     compilerOptions: {
                         module: 'es2015'
                     }

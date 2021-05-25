@@ -36,8 +36,7 @@
         "postcss": "^8.2.10",
         "postcss-loader": "^5.2.0",
         "sass-resources-loader": "^2.1.1",
-        "style-loader": "^0.23.1",
-        "ts-import-plugin": "^1.6.7",
+        "style-loader": "^2.0.0",
         "ts-loader": "^8.0.11",
         "ts-node": "^9.1.1",
         "tsconfig-paths": "^3.9.0",
@@ -59,10 +58,5 @@
         "react-router-dom": "^5.2.0",
         "redux": "^4.0.1",
         "redux-thunk": "^2.3.0"
-    },
-    "browserslist": [
-        "> 5%",
-        "last 20 versions",
-        "not ie <= 8"
-    ]
+    }
 }

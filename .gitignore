@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist.zip
+bundle.js
+npm-debug.log.*
+npm-debug.*
+package-lock.json
+yarn-error.log
+**/.DS_Store

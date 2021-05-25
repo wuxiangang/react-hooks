@@ -1,0 +1,72 @@
+.m-g {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    .m-g-in {
+        padding: 0 1.2rem;
+        height: 3.2rem;
+        line-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+        background-color: #fff;
+        .u-nav {
+            a.u-nav-title {
+                position: relative;
+                line-height: 3.2rem;
+                display: inline-block;
+                font-size: .8rem;
+                padding: 0 .6rem;
+                cursor: pointer;
+                &:hover {
+                    .u-menu-paper {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                .u-menu-paper {
+                    opacity: 0;
+                    visibility: hidden;
+                    .MuiGrid-container {
+                        font-size: .7rem;
+                        flex-wrap: nowrap;
+                    }
+                    a, .MuiMenuItem-root {
+                        font-size: .7rem;
+                    }
+                    .u-sub-item {
+                        padding: 0 1.2rem 1rem;
+                    }
+                }
+                .ps-top-center {
+                    top: 3.25rem;
+                }
+                .MuiList-padding {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.theme(
+    @theme__c: @theme_main_color;
+) {
+    .f-baloo {
+        color: @theme__c;
+        font-size: 1.4rem;
+        font-family: 'Baloo Bhaijaan', cursive;
+        font-weight: 400;
+    }
+
+    .u-nav .u-nav-title {
+        color: @theme__c;
+    }
+}
+
+.theme-default {
+    .theme()
+}

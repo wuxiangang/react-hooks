@@ -1,14 +1,13 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+const { PublicPath, OutputPath } = require('./config')
 const baseWebpackConfig = require('./webpack.base.conf')
-const { resolve } = require('./utils')
-const { PublicPath } = require('./config')
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     devServer: {
         historyApiFallback: true,
-        contentBase: resolve('../dist'),
+        contentBase: OutputPath,
         host: 'localhost',
         overlay: true,
         hot: true,

@@ -17,11 +17,11 @@ module.exports = [
     new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'public/index.html',
-        inject: true
+        inject: 'body'
     }),
     new IncludeAssetsPlugin({
         tags: [`static/js/vendor.dll.js`],
-        append: false
+        append: false,
     }),
     // copy custom static assets
     new CopyWebpackPlugin([{

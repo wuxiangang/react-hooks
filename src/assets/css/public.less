@@ -1,4 +1,70 @@
-.header {
-    flex: 1;
-    background-color: @bc_hd;
+
+html {
+    font-size: 20px;
+}
+
+body {
+    font-size: .7rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.container-fluid {
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 .8rem;
+}
+
+/** Position Class **/
+.ps-md-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.ps-top-center {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+}
+
+/** Animation Keyframes **/
+@keyframes jss32 {
+    from {
+        transform: translate3d(-90px, 0, 0);
+    }
+    to {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/** change by theme **/
+.theme(
+    @theme__c: @theme_main_color
+) {
+    .jss-theme-btn {
+        &:hover, &:focus, &.Mui-selected {
+            color: #fff!important;
+            border-radius: 2px;
+            box-shadow: 0 2px 2px 0 rgb(0 172 193 / 14%), 0 3px 1px -2px rgb(0 172 193 / 20%), 0 1px 5px 0 rgb(0 172 193 / 12%);
+            background-color: @theme_main_color!important;
+            a {
+                color: #fff!important;
+            }
+        }
+    }
+    .MuiButton-containedPrimary {
+        background: @theme_main_color;
+        &:hover, &:focus {
+            background: @theme_main_color;
+            opacity: .8;
+        }
+    }
+}
+
+
+.theme-default {
+    .theme()
 }
