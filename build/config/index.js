@@ -7,4 +7,5 @@ module.exports = {
     // production
     IsGziped: false,
     GzipExtensions: ['js', 'css'],
+    Eslint: true
 }

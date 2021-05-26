@@ -4,9 +4,10 @@ const userReducer = (state = {}, action: anyObject) => {
     switch (action.type) {
         case 'USERINFO_SET':
             state = { ...state, ...action.data }
-            return state
+            break
         case 'USERINFO_CLEAR':
-            return state = {}
+            state = {}
+            break
     }
     return state
 }

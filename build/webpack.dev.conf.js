@@ -9,12 +9,16 @@ module.exports = merge(baseWebpackConfig, {
         historyApiFallback: true,
         contentBase: OutputPath,
         host: 'localhost',
-        overlay: true,
+        overlay: {
+            warnings: true,
+            errors: true
+        },
         hot: true,
         inline: true,
         compress: true,
         port: 9000,
-        publicPath: PublicPath
+        publicPath: PublicPath,
+        stats: "errors-only"
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin()

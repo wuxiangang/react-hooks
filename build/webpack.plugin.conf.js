@@ -4,6 +4,8 @@ const WebpackBar = require('webpackbar')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const IncludeAssetsPlugin = require('html-webpack-tags-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const { Eslint } = require('./config')
 
 module.exports = [
     new WebpackBar({
@@ -28,5 +30,12 @@ module.exports = [
         from: path.resolve(__dirname, '../public/static'),
         to: 'static',
         ignore: ['.*']
-    }])
+    }]),
+    ...(Eslint ? [
+        new ESLintPlugin({
+            fix: true,
+            extensions: ['ts', 'json', 'tsx'],
+            exclude: '/node_modules/'
+        })
+    ] : [])
 ]

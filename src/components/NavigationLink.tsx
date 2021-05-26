@@ -21,8 +21,7 @@ const NavigationLink: FC<NavigationOpt.NavigationLinkOpt> = ({ items }) => {
                             {
                                 subList.map(subItem => {
                                     const { title, children } = subItem
-                                    return <>
-                                        <Grid className="u-sub-item" item xs>
+                                    return <Grid className="u-sub-item" key={title} item xs>
                                             <MenuList autoFocusItem={true}>
                                                 <MenuItem>{ title }</MenuItem>
                                                 {
@@ -30,6 +29,7 @@ const NavigationLink: FC<NavigationOpt.NavigationLinkOpt> = ({ items }) => {
                                                         const { title, pathname } = child
                                                         return <MenuItem 
                                                             className="jss-theme-btn"
+                                                            key={title}
                                                             selected={history.location.pathname === pathname}
                                                         >
                                                             <Link to={pathname}>{ title }</Link>
@@ -38,7 +38,6 @@ const NavigationLink: FC<NavigationOpt.NavigationLinkOpt> = ({ items }) => {
                                                 }
                                             </MenuList>
                                         </Grid>
-                                    </>
                                 })
                             }
                         </Grid>

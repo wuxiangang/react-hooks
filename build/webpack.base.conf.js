@@ -42,30 +42,32 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.tsx?$/,
-            include: [resolve('../src')],
-            exclude: /node_modules/,
-            use: ['babel-loader', {
-                loader: 'ts-loader',
-                options: {
-                    transpileOnly: true,
-                    compilerOptions: {
-                        module: 'es2015'
+                test: /\.tsx?$/,
+                include: [resolve('../src')],
+                exclude: /node_modules/,
+                use: ['babel-loader', {
+                    loader: 'ts-loader',
+                    options: {
+                        transpileOnly: true,
+                        compilerOptions: {
+                            module: 'es2015'
+                        }
                     }
+                }]
+            },
+            {
+                test: /\.less$/,
+                use: styleLoaders
+            }, {
+                test: /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    esModule: false,
+                    name: assetsPath('img/[name].[hash:7].[ext]')
                 }
-            }]
-        }, {
-            test: /\.less$/,
-            use: styleLoaders
-        }, {
-            test: /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/,
-            loader: 'url-loader',
-            options: {
-                limit: 10000,
-                esModule: false,
-                name: assetsPath('img/[name].[hash:7].[ext]')
             }
-        }]
+        ]
     },
     performance: {
         hints: false
